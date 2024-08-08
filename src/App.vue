@@ -2,19 +2,12 @@
   <div>
     <h1>App组件</h1>
     <Pager :current="current" :total="total" @pageChange="handlePagechange" />
-    <!-- <input v-model="text" type="text" />
-    <button>{{ this.text }}</button>
-    <textarea v-model="text" name="" id="" cols="30" rows="10"></textarea>
-    <Try v-model="t" /> -->
-    <Parent />
   </div>
 </template>
 
 <script>
 import Avatar from "./components/Avatar"; //导入所需组件
 import Pager from "./components/Pager";
-import Try from "./components/try.vue";
-import Parent from "./components/parent.vue";
 
 //因为App.js也是给个组件会被使用，故也需要导出，类似一个模块
 export default {
@@ -30,8 +23,6 @@ export default {
   components: {
     Avatar, //局部注册子组件
     Pager,
-    Try,
-    Parent,
   },
   methods: {
     handlePagechange(newPage) {
