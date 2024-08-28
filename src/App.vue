@@ -1,9 +1,13 @@
 <template>
   <div>
-    <h1>App组件</h1>
-    <Pager :current="current" :total="total" @pageChange="handlePagechange" />
-    <Empty />
-    <div v-bind:current="current"></div>
+    <div class="test-container">
+      <ImageLoader
+        src="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?fit=crop&crop=entropy&w=3456&h=2304"
+        placeholder="https://images.pexels.com/photos/33109/fall-autumn-red-season.jpg?w=100"
+        :duration="3000"
+        @load="handleLoadImage"
+      />
+    </div>
   </div>
 </template>
 
@@ -11,6 +15,7 @@
 import Avatar from "./components/Avatar"; //导入所需组件
 import Pager from "./components/Pager";
 import Empty from "./components/Empty";
+import ImageLoader from "@/components/ImageLoader";
 
 //因为App.js也是给个组件会被使用，故也需要导出，类似一个模块
 export default {
@@ -27,10 +32,14 @@ export default {
     Avatar, //局部注册子组件
     Pager,
     Empty,
+    ImageLoader,
   },
   methods: {
     handlePagechange(newPage) {
       this.current = newPage;
+    },
+    handleLoadImage() {
+      console.log("图片已加载完成");
     },
   },
 };
@@ -41,4 +50,10 @@ export default {
     font-size: 50px;
     color: black;
   } */
+
+.test-container {
+  width: 500px;
+  height: 500px;
+  outline: 2px solid black;
+}
 </style>
