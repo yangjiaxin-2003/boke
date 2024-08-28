@@ -2,19 +2,22 @@
   <div>
     <h1>App组件</h1>
     <Pager :current="current" :total="total" @pageChange="handlePagechange" />
+    <Empty />
+    <div v-bind:current="current"></div>
   </div>
 </template>
 
 <script>
 import Avatar from "./components/Avatar"; //导入所需组件
 import Pager from "./components/Pager";
+import Empty from "./components/Empty";
 
 //因为App.js也是给个组件会被使用，故也需要导出，类似一个模块
 export default {
   name: "App", //如果组件没有在注册的时候制定名字，则使用该名字
   data() {
     return {
-      current: 6,
+      current: 16,
       total: 101,
       text: "123", // 文本输入框
       t: 100,
@@ -23,6 +26,7 @@ export default {
   components: {
     Avatar, //局部注册子组件
     Pager,
+    Empty,
   },
   methods: {
     handlePagechange(newPage) {
