@@ -8,6 +8,9 @@
         @load="handleLoadImage"
       />
     </div>
+    <div class="test1-container">
+      <Contact />
+    </div>
   </div>
 </template>
 
@@ -16,6 +19,7 @@ import Avatar from "./components/Avatar"; //导入所需组件
 import Pager from "./components/Pager";
 import Empty from "./components/Empty";
 import ImageLoader from "@/components/ImageLoader";
+import Contact from "@/components/SiteAside/Contact";
 
 //因为App.js也是给个组件会被使用，故也需要导出，类似一个模块
 export default {
@@ -33,6 +37,7 @@ export default {
     Pager,
     Empty,
     ImageLoader,
+    Contact,
   },
   methods: {
     handlePagechange(newPage) {
@@ -55,5 +60,10 @@ export default {
   width: 500px;
   height: 500px;
   outline: 2px solid black;
+}
+.test1-container {
+  width: 500px;
+  height: 500px;
+  background-color: rgb(0, 0, 0);
 }
 </style>
